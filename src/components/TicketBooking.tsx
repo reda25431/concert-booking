@@ -39,7 +39,6 @@ export default function TicketBookingPage() {
   const [quantity, setQuantity] = useState<number>(1);
   const [response, setResponse] = useState<ResponseType | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
-  const [tick, setTick] = useState<number>(Date.now());
 
   const [tickets, setTickets] = useState<Record<string, number>>(() => {
     const initial: Record<string, number> = {};
@@ -54,7 +53,6 @@ export default function TicketBookingPage() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTick(Date.now());
       const now = Date.now();
 
       const expired = Object.keys(reservations).filter(key => {
@@ -259,7 +257,7 @@ export default function TicketBookingPage() {
               <div className="flex items-center gap-2 mb-2">
                 <Clock className="h-5 w-5 text-yellow-600" />
                 <span className="font-medium text-yellow-800">
-                  เวลาที่เหลือในการชำระเงิน: {formatTime(getReservationTimeLeft(userId)!)}
+                  เวลาที่เหลือในการชำระเงิน: {formatTime(timeLeft)}
                 </span>
               </div>
               <div className="text-sm text-yellow-700">
