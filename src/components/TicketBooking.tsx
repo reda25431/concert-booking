@@ -259,7 +259,7 @@ export default function TicketBookingPage() {
               <div className="flex items-center gap-2 mb-2">
                 <Clock className="h-5 w-5 text-yellow-600" />
                 <span className="font-medium text-yellow-800">
-                  เวลาที่เหลือในการชำระเงิน: {formatTime(timeLeft)}
+                  เวลาที่เหลือในการชำระเงิน: {formatTime(getReservationTimeLeft(userId)!)}
                 </span>
               </div>
               <div className="text-sm text-yellow-700">
